@@ -70,12 +70,12 @@ app.post("/signin", async function (req, res) {
 		if (user) {
 			let matchPassword = bcryptjs.compareSync(req.body.pwd, user.pwd);
 			if (matchPassword) {
-				//let token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+				
 				res.json({
 					message: true,
 					code: true,
 				});
-				//token,
+				
 			} else {
 				res.status(404).json({
 					message: "Username/Password is incorrect",
