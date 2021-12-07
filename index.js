@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import mongo from "mongodb";
 import dotenv from "dotenv";
-import jwt from "jsonwebtoken";
 import bcryptjs from "bcrypt";
 
 const app = express();
@@ -20,15 +19,7 @@ app.use(express.json());
 
 app.get("/data", async (req, res) => {
 	try {
-		let client = await mongoClient.connect(url);
-
-		let db = client.db("registration");
-
-		let data = await db.collection("products").find().toArray();
-
-		client.close();
-
-		res.json(data);
+		res.send("login successful");
 	} catch (error) {
 		res.status(404).json({
 			message: "Something went wrong",
